@@ -1,4 +1,4 @@
-package org.example;
+package org.monopoly;
 
 public class Jogador {
     private String nome;

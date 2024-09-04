@@ -1,4 +1,4 @@
-package org.example;
+package org.monopoly;
 
 import java.util.ArrayList;
 
