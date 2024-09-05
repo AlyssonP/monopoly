@@ -13,5 +13,20 @@ public class Jogador {
         posicao = 1;
     }
 
-    public void status() {}
+    @Override
+    public String toString() {
+        return "Jogador:"+this.nome+"    Posição:"+this.posicao;
+    }
+    public void setPosicao(int posicao){
+        if ((this.posicao+posicao)>40){
+            this.posicao = (this.posicao+=posicao)-40;
+        }else{
+            this.posicao += posicao;
+        }
+        
+    }
+
+    public int getPosicao(){
+        return this.posicao;
+    }
 }
