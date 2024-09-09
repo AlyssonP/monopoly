@@ -18,6 +18,7 @@ public class Lugar {
     private float aluguel_hotel;
     private float hipoteca;
     private float preco_comprar_casa;
+    private Jogador proprietario;
 
     public Lugar(int posicao, String endereco, float preco_inicial, float aluguel_sem_casa,
                 float aluguel_casa_um, float aluguel_casa_dois, float aluguel_casa_tres,
@@ -97,5 +98,17 @@ public class Lugar {
             e.printStackTrace();
         }
         return lugares;
+    }
+
+    public float getPrecoInicial(){
+        return this.preco_inicial;
+    }
+
+    public void setProprietario(Jogador proprietario){
+        this.proprietario = proprietario;
+    }
+
+    public Jogador getProprietario(){
+        return this.proprietario;
     }
 }
