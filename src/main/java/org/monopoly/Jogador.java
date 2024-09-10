@@ -6,11 +6,11 @@ import java.util.List;
 public class Jogador {
     private String nome;
     private double saldo;
-    private Cor cor;
+    private CorJogador cor;
     private int posicao;
     private List<Lugar> aquisicoes = new ArrayList<>();
 
-    public Jogador(String nome, Cor cor) {
+    public Jogador(String nome, CorJogador cor) {
         this.nome = nome;
         this.cor = cor;
         saldo = 1500;

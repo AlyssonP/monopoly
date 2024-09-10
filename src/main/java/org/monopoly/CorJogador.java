@@ -1,6 +1,6 @@
 package org.monopoly;
 
-public enum Cor {
+public enum CorJogador {
     PRETO,
     BRANCO,
     VERMELHO,
@@ -8,4 +8,5 @@ public enum Cor {
     AMARELO,
     LARANJA,
     ROSA;
+    
 }
