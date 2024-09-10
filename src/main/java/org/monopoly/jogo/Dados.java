@@ -1,4 +1,4 @@
-package org.monopoly;
+package org.monopoly.jogo;
 
 import java.util.Random;
 

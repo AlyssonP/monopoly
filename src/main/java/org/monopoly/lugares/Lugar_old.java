@@ -1,4 +1,7 @@
-package org.monopoly;
+package org.monopoly.lugares;
+
+import org.monopoly.CorLugar;
+import org.monopoly.jogo.Jogador;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lugar {
+public class Lugar_old {
     private int posicao;
     private String endereco;
     private float preco_inicial;
@@ -21,10 +24,10 @@ public class Lugar {
     private Jogador proprietario;
     private CorLugar corlugar;
 
-    public Lugar(int posicao, String endereco, float preco_inicial, float aluguel_sem_casa,
-                float aluguel_casa_um, float aluguel_casa_dois, float aluguel_casa_tres,
-                float aluguel_casa_quatro, float aluguel_hotel, float hipoteca,
-                float preco_comprar_casa, CorLugar corlugar) {
+    public Lugar_old(int posicao, String endereco, float preco_inicial, float aluguel_sem_casa,
+                     float aluguel_casa_um, float aluguel_casa_dois, float aluguel_casa_tres,
+                     float aluguel_casa_quatro, float aluguel_hotel, float hipoteca,
+                     float preco_comprar_casa, CorLugar corlugar) {
         this.posicao = posicao;
         this.endereco = endereco;
         this.preco_inicial = preco_inicial;
@@ -39,12 +42,12 @@ public class Lugar {
         this.corlugar = corlugar;
     }
 
-    public Lugar(int posicao, String endereco){
+    public Lugar_old(int posicao, String endereco){
         this.posicao = posicao;
         this.endereco = endereco;
     }
 
-    public Lugar(){
+    public Lugar_old(){
     }
 
     @Override
@@ -66,10 +69,10 @@ public class Lugar {
     }
 
 
-    public List<Lugar> criarLugares(){
+    public List<Lugar_old> criarLugares(){
         String arquivoCSV = "./monopoly_properties.csv";
         String linha;
-        List<Lugar> lugares = new ArrayList<>();
+        List<Lugar_old> lugares = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoCSV))) {
             
@@ -95,7 +98,7 @@ public class Lugar {
                         float hipoteca = valores.length > 9 && !valores[9].isEmpty() ? Float.parseFloat(valores[9]) : 0;
                         float precoCasa = valores.length > 10 && !valores[10].isEmpty() ? Float.parseFloat(valores[10]) : 0;
     
-                        Lugar lugar = new Lugar(
+                        Lugar_old lugar = new Lugar_old(
                             Integer.parseInt(valores[0]),
                             valores[1],
                             preco,
@@ -114,7 +117,7 @@ public class Lugar {
                         e.printStackTrace();
                     }
                 } else {
-                    Lugar lugar = new Lugar( Integer.parseInt(valores[0]), valores[1]);
+                    Lugar_old lugar = new Lugar_old( Integer.parseInt(valores[0]), valores[1]);
                     lugares.add(lugar);
                 }
             }

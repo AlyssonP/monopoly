@@ -1,13 +1,17 @@
 package org.monopoly;
 
+import org.monopoly.jogo.Cor;
+import org.monopoly.jogo.Jogador;
+import org.monopoly.jogo.Monopoly;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Monopoly monopoly = new Monopoly();
 
-        Jogador jogador1 = new Jogador("wedson", CorJogador.ROSA);
-        Jogador jogador2 = new Jogador("alysson", CorJogador.PRETO);
+        Jogador jogador1 = new Jogador("wedson", Cor.ROSA);
+        Jogador jogador2 = new Jogador("alysson", Cor.PRETO);
 
         monopoly.addJogador(jogador1);
         monopoly.addJogador(jogador2);
