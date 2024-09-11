@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 public class Monopoly {
     private ArrayList<Peao> peaos;
-    private Tabuleiro tabuleiro = new Tabuleiro();
+    private Tabuleiro tabuleiro;
     private int jogador_da_vez = 0;
 
     public Monopoly() {
-        this.peaos = new ArrayList<>();
+        peaos = new ArrayList<>();
+        tabuleiro = new Tabuleiro();
     }
 
-    public void addPeao(Peao peao) {peaos.add(peao)};
+    public void addPeao(Jogador jogador) {peaos.add(new Peao(jogador, 0));}
 
     public void jogar(){
-        this.tabuleiro.jogar(peaos.get(jogador_da_vez));
-        alterar_jogador_da_vez();
+//        this.tabuleiro.jogar(peaos.get(jogador_da_vez));
+//        alterar_jogador_da_vez();
     }
 
     public void alterar_jogador_da_vez(){
