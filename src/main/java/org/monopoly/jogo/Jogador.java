@@ -18,6 +18,10 @@ public class Jogador {
         aquisicoes = new ArrayList<>();
     }
 
+    public void acrescentarSaldo(int valor) {
+        saldo+=valor;
+    }
+
     public void descontarSaldo(int valor) {
         saldo-=valor;
     }
