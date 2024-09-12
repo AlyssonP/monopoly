@@ -17,6 +17,10 @@ public class Peao {
         this.jogador = jogador;
     }
 
+    public String getNomeJogador() {
+        return jogador.getNome();
+    }
+
     public int getPosicao() {
         return posicao;
     }

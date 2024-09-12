@@ -13,7 +13,6 @@ public class Tabuleiro {
     private ArrayList<Lugar> lugares;
 
     public Tabuleiro(){
-        Lugar_old lugar = new Lugar_old();
         inicializarTabuleiro();
     }
 

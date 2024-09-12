@@ -39,5 +39,7 @@ public abstract class Lugar {
         this.proprietario = proprietario;
     }
 
+    public abstract void venderLugar(Jogador jogadorComprador);
+    public abstract void ofertarVendaLugar(Jogador jogador);
     public abstract void executarAcao(Peao peao);
 }

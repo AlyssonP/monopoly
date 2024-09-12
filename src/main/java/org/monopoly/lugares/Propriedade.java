@@ -2,6 +2,7 @@ package org.monopoly.lugares;
 
 import org.monopoly.CorLugar;
 import org.monopoly.jogo.Cor;
+import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Peao;
 
 public class Propriedade extends Lugar{
@@ -44,6 +45,14 @@ public class Propriedade extends Lugar{
     public int getAluguel(){
         return this.aluguel[this.casas];
     }
+
+    public int getHipoteca() {return hipoteca;}
+
+    @Override
+    public void venderLugar(Jogador jogadorComprador){}
+
+    @Override
+    public void ofertarVendaLugar(Jogador jogador){}
 
     @Override
     public void executarAcao(Peao peao) {

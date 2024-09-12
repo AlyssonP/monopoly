@@ -2,6 +2,7 @@ package org.monopoly.lugares;
 
 import org.monopoly.cartas.Carta;
 import org.monopoly.cartas.CartaRepository;
+import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Peao;
 
 import java.util.ArrayList;
@@ -41,6 +42,12 @@ public class SorteReves extends Lugar{
     //         System.out.println(c);
     //     }
     // }
+
+    @Override
+    public void venderLugar(Jogador jogadorComprador){}
+
+    @Override
+    public void ofertarVendaLugar(Jogador jogador){}
 
     @Override
     public void executarAcao(Peao peao) {
