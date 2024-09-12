@@ -1,32 +1,12 @@
 package org.monopoly.jogo;
 
-import org.monopoly.CorLugar;
-
-public class Aquisicao {
-    private String nome;
-    private CorLugar cor;
+public abstract class Aquisicao {
     private int preco;
+    private int hipoteca;
 
-    public Aquisicao(String nome, CorLugar cor, int preco) {
-        this.nome = nome;
-        this.cor = cor;
+    public Aquisicao(int preco, int hipoteca) {
         this.preco = preco;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public CorLugar getCor() {
-        return cor;
-    }
-
-    public void setCor(CorLugar cor) {
-        this.cor = cor;
+        this.hipoteca = hipoteca;
     }
 
     public int getPreco() {
