@@ -12,7 +12,7 @@ public class Imposto extends Lugar {
 
     @Override
     public void executarAcao(Peao peao) {
-        System.out.printf("Você caiu no imposto %s\n, Terá que pagar R$ %D ao banco", tipoImposto.getNome(), tipoImposto.getValor());
+        System.out.printf("Você caiu no imposto %s\n, Terá que pagar R$ %d ao banco", tipoImposto.getNome(), tipoImposto.getValor());
         peao.getJogador().descontarSaldo(tipoImposto.getValor());
     }
 }
