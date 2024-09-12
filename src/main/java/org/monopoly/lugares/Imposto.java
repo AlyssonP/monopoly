@@ -1,5 +1,6 @@
 package org.monopoly.lugares;
 
+import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Peao;
 
 public class Imposto extends Lugar {
@@ -11,8 +12,14 @@ public class Imposto extends Lugar {
     }
 
     @Override
+    public void venderLugar(Jogador jogadorComprador) {}
+
+    @Override
+    public void ofertarVendaLugar(Jogador jogador) {}
+
+    @Override
     public void executarAcao(Peao peao) {
-        System.out.printf("Você caiu no imposto %s\n, Terá que pagar R$ %d ao banco", tipoImposto.getNome(), tipoImposto.getValor());
+        System.out.printf("Você caiu no imposto %s\n. Terá que pagar R$ %d ao banco", tipoImposto.getNome(), tipoImposto.getValor());
         peao.getJogador().descontarSaldo(tipoImposto.getValor());
     }
 }

@@ -1,5 +1,8 @@
 package org.monopoly.jogo;
 
+import org.monopoly.jogo.aquesicoes.AquisicaoFerrovia;
+import org.monopoly.jogo.aquesicoes.AquisicaoPropriedade;
+import org.monopoly.lugares.Ferrovia;
 import org.monopoly.lugares.Lugar;
 import org.monopoly.lugares.Propriedade;
 
@@ -31,6 +34,9 @@ public class Jogador {
         aquisicoes.add(aquisicao);
     }
 
+    public List<Aquisicao> getAquisicoes() {
+        return aquisicoes;
+    }
     public void comprarLugar(Lugar lugar) {
 
     }
@@ -58,7 +64,7 @@ public class Jogador {
 
    public boolean podeComprarTerreno(Propriedade lugar){
        if(this.saldo>=lugar.getPreco()){
-           aquisicoes.add(new Aquisicao(lugar.getNome(), lugar.getCor(), lugar.getPreco()));
+           aquisicoes.add(new AquisicaoPropriedade(lugar));
            return true;
        }
        return false;
@@ -86,6 +92,11 @@ public class Jogador {
         descontarSaldo(lugar.getAluguel());
         lugar.getProprietario().acrescentarSaldo(lugar.getAluguel());
         System.out.println(this.nome+" PAGOU "+lugar.getAluguel()+" PARA " + lugar.getProprietario().getNome());
+    }
+
+    public void comprarFerrovia(Ferrovia ferrovia) {
+        descontarSaldo(ferrovia.getValor());
+        aquisicoes.add(new AquisicaoFerrovia(ferrovia));
     }
 
 }

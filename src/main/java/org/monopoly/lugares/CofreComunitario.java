@@ -2,11 +2,11 @@ package org.monopoly.lugares;
 
 import org.monopoly.cartas.Carta;
 import org.monopoly.cartas.CartaRepository;
+import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Peao;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class CofreComunitario extends Lugar {
     private ArrayList<Carta> cartas;
@@ -18,7 +18,6 @@ public class CofreComunitario extends Lugar {
         embaralharCartas();
         indiceCarta = 0;
     }
-
 
     public void inicializarCartas() {
         CartaRepository repo = new CartaRepository();
@@ -43,6 +42,12 @@ public class CofreComunitario extends Lugar {
     //         System.out.println(c);
     //     }
     // }
+
+    @Override
+    public void venderLugar(Jogador jogadorComprador){}
+
+    @Override
+    public void ofertarVendaLugar(Jogador jogador){}
 
     @Override
     public void executarAcao(Peao peao) {

@@ -14,6 +14,7 @@ public class Pagamento extends Carta{
 
     @Override
     public void executarAcao(Peao peao) {
+        System.out.println(super.getNome()+" - "+super.getDescricao());
         regraPagemento.executarRegra(peao.getJogador(), valor);
     }
 }
