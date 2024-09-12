@@ -17,6 +17,8 @@ public class Propriedade extends Lugar{
         this.cor = cor;
         this.preco = preco;
         this.aluguel = aluguel;
+        this.hipoteca = hipoteca;
+        this.precoCasa = precoCasa;
     }
 
     public int getPreco(){
@@ -25,6 +27,22 @@ public class Propriedade extends Lugar{
 
     public CorLugar getCor(){
         return this.cor;
+    }
+
+    public int getCasas(){
+        return this.casas;
+    }
+
+    public void setCasas(){
+        this.casas+=1;
+    }
+
+    public int getPrecoCasa(){
+        return this.precoCasa;
+    }
+
+    public int getAluguel(){
+        return this.aluguel[this.casas];
     }
 
     @Override

@@ -39,6 +39,10 @@ public class Jogador {
         return this.nome;
     }
 
+    public Double getSaldo(){
+        return this.saldo;
+    }
+
 //    @Override
 //    public String toString() {
 //        return "Jogador:"+this.nome+"    Posição:"+this.posicao;
@@ -52,8 +56,7 @@ public class Jogador {
 //
 //    }
 
-   public boolean podeComprar(Propriedade lugar){
-       System.out.println(this.saldo + this.nome);
+   public boolean podeComprarTerreno(Propriedade lugar){
        if(this.saldo>=lugar.getPreco()){
            aquisicoes.add(new Aquisicao(lugar.getNome(), lugar.getCor(), lugar.getPreco()));
            return true;
@@ -61,7 +64,31 @@ public class Jogador {
        return false;
 
    }
-   public void comprar(Propriedade lugar){
-        this.saldo -= lugar.getPreco();
+   public void comprarTerreno(String resposta, Propriedade lugar){
+        if (resposta.equalsIgnoreCase("s")){
+            lugar.setProprietario(this);
+            descontarSaldo(lugar.getPreco());
+            System.out.println(getNome()+" Comprouu!");
+        }
+
    }
+
+    public boolean podeComprarImovel(String resposta, Propriedade lugar){
+        if(resposta.equalsIgnoreCase("s") && this.saldo>=lugar.getPrecoCasa() && lugar.getCasas()<5){
+            return true;
+        }
+        return false;
+    };
+
+    public void comparImovel(Propriedade lugar){
+        lugar.setCasas();
+        this.saldo -= lugar.getPrecoCasa();
+    }
+
+    public void pagarAluguel(Propriedade lugar){
+        descontarSaldo(lugar.getAluguel());
+        lugar.getProprietario().acrescentarSaldo(lugar.getAluguel());
+        System.out.println(this.nome+" PAGOU "+lugar.getAluguel()+" PARA " + lugar.getProprietario().getNome());
+    }
+
 }

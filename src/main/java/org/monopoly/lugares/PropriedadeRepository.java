@@ -35,8 +35,8 @@ public class PropriedadeRepository {
                             Integer.parseInt(valores[7]),
                             Integer.parseInt(valores[8])
                         };
-                        int hipoteca = Integer.parseInt(valores[9]);
-                        int precoCasa = Integer.parseInt(valores[10]);
+                        int hipoteca = Integer.parseInt(valores[9].trim());
+                        int precoCasa = Integer.parseInt(valores[10].trim());
                         
                         CorLugar cor = CorLugar.valueOf(valores[11].trim());
     

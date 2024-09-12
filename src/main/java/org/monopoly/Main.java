@@ -61,7 +61,7 @@ public class Main {
         }
 
         boolean continuar = true;
-
+        limparTerminal();
         while (continuar) {
             monopoly.jogar();
 
@@ -71,9 +71,22 @@ public class Main {
             if (resposta.equalsIgnoreCase("n")) {
                 continuar = false;
             }
+            limparTerminal();
         }
         System.out.println("O jogo acabou!");
         scanner.close();
+    }
+
+    public static void limparTerminal() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao limpar o terminal: " + e.getMessage());
+        }
     }
 
 }
