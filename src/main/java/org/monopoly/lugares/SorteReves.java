@@ -21,7 +21,7 @@ public class SorteReves extends Lugar{
 
     public void inicializarCartas() {
         CartaRepository repo = new CartaRepository();
-        this.cartas = repo.iniciar("./sorteReves.csv");
+        this.cartas = repo.iniciar("./csv/sorte_reves_cartas.csv");
     }
 
     public void embaralharCartas() {

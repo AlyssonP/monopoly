@@ -6,7 +6,7 @@ public class Peao {
 
     public Peao(Jogador jogador, int posicao) {
         this.jogador = jogador;
-        this.posicao = 26;
+        this.posicao = 5;
     }
 
     public Jogador getJogador() {

@@ -21,7 +21,7 @@ public class CofreComunitario extends Lugar {
 
     public void inicializarCartas() {
         CartaRepository repo = new CartaRepository();
-        this.cartas = repo.iniciar("./cofresComunitarios.csv");
+        this.cartas = repo.iniciar("./csv/cofres_comunitarios_cartas.csv");
     }
 
     public void embaralharCartas() {
