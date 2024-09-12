@@ -1,11 +1,13 @@
 package org.monopoly.jogo;
 
+import org.monopoly.CorLugar;
+
 public class Aquisicao {
     private String nome;
-    private Cor cor;
+    private CorLugar cor;
     private int preco;
 
-    public Aquisicao(String nome, Cor cor, int preco) {
+    public Aquisicao(String nome, CorLugar cor, int preco) {
         this.nome = nome;
         this.cor = cor;
         this.preco = preco;
@@ -19,11 +21,11 @@ public class Aquisicao {
         this.nome = nome;
     }
 
-    public Cor getCor() {
+    public CorLugar getCor() {
         return cor;
     }
 
-    public void setCor(Cor cor) {
+    public void setCor(CorLugar cor) {
         this.cor = cor;
     }
 

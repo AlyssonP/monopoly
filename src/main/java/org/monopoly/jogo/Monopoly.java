@@ -15,8 +15,8 @@ public class Monopoly {
     public void addPeao(Jogador jogador) {peaos.add(new Peao(jogador, 0));}
 
     public void jogar(){
-//        this.tabuleiro.jogar(peaos.get(jogador_da_vez));
-//        alterar_jogador_da_vez();
+       this.tabuleiro.jogar(peaos.get(jogador_da_vez));
+       alterar_jogador_da_vez();
     }
 
     public void alterar_jogador_da_vez(){

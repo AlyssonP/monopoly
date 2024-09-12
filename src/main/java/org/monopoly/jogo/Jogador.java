@@ -1,6 +1,7 @@
 package org.monopoly.jogo;
 
 import org.monopoly.lugares.Lugar;
+import org.monopoly.lugares.Propriedade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,10 @@ public class Jogador {
 
     }
 
+    public String getNome(){
+        return this.nome;
+    }
+
 //    @Override
 //    public String toString() {
 //        return "Jogador:"+this.nome+"    Posição:"+this.posicao;
@@ -47,14 +52,16 @@ public class Jogador {
 //
 //    }
 
-//    public boolean comprar(Lugar lugar){
-//        System.out.println(this.saldo + this.nome);
-//        if(this.saldo>=lugar.getPrecoInicial()){
-//            aquisicoes.add(lugar);
-//            this.saldo -= lugar.getPrecoInicial();
-//            return true;
-//        }
-//        return false;
-//
-//    }
+   public boolean podeComprar(Propriedade lugar){
+       System.out.println(this.saldo + this.nome);
+       if(this.saldo>=lugar.getPreco()){
+           aquisicoes.add(new Aquisicao(lugar.getNome(), lugar.getCor(), lugar.getPreco()));
+           return true;
+       }
+       return false;
+
+   }
+   public void comprar(Propriedade lugar){
+        this.saldo -= lugar.getPreco();
+   }
 }

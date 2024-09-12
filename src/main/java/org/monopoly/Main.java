@@ -3,6 +3,8 @@ package org.monopoly;
 import org.monopoly.jogo.Cor;
 import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Monopoly;
+import org.monopoly.lugares.CofreComunitario;
+import org.monopoly.lugares.SorteReves;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +72,6 @@ public class Main {
                 continuar = false;
             }
         }
-
         System.out.println("O jogo acabou!");
         scanner.close();
     }

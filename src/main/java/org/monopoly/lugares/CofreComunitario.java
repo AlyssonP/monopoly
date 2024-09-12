@@ -1,24 +1,28 @@
 package org.monopoly.lugares;
 
 import org.monopoly.cartas.Carta;
+import org.monopoly.cartas.CartaRepository;
 import org.monopoly.jogo.Peao;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class CofreComunitario extends Lugar {
     private ArrayList<Carta> cartas;
     private int indiceCarta;
 
-    private CofreComunitario(String nome, int posicao) {
+    public CofreComunitario(String nome, int posicao) {
         super(nome, posicao);
         inicializarCartas();
         embaralharCartas();
         indiceCarta = 0;
     }
 
+
     public void inicializarCartas() {
-        // Logica de inicialização
+        CartaRepository repo = new CartaRepository();
+        this.cartas = repo.iniciar("./cofresComunitarios.csv");
     }
 
     public void embaralharCartas() {
@@ -33,6 +37,12 @@ public class CofreComunitario extends Lugar {
         indiceCarta++;
         return cartaVez;
     }
+
+    // public void mostrarCarta(){
+    //     for (Carta c: cartas){
+    //         System.out.println(c);
+    //     }
+    // }
 
     @Override
     public void executarAcao(Peao peao) {

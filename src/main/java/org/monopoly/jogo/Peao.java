@@ -24,4 +24,8 @@ public class Peao {
     public void setPosicao(int posicao) {
         this.posicao = posicao;
     }
+    @Override
+   public String toString() {
+       return "Jogador:"+this.jogador.getNome()+"    Posição:"+this.posicao;
+   }
 }

@@ -31,5 +31,13 @@ public abstract class Lugar {
         this.posicao = posicao;
     }
 
+    public Jogador getProprietario(){
+        return this.proprietario;
+    }
+
+    public void setProprietario(Jogador proprietario){
+        this.proprietario = proprietario;
+    }
+
     public abstract void executarAcao(Peao peao);
 }

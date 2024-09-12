@@ -1,6 +1,7 @@
 package org.monopoly.lugares;
 
 import org.monopoly.cartas.Carta;
+import org.monopoly.cartas.CartaRepository;
 import org.monopoly.jogo.Peao;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class SorteReves extends Lugar{
     private ArrayList<Carta> cartas;
     private int indiceCarta;
 
-    private SorteReves(String nome, int posicao) {
+    public SorteReves(String nome, int posicao) {
         super(nome, posicao);
         inicializarCartas();
         embaralharCartas();
@@ -18,7 +19,8 @@ public class SorteReves extends Lugar{
     }
 
     public void inicializarCartas() {
-        // Logica de inicialização
+        CartaRepository repo = new CartaRepository();
+        this.cartas = repo.iniciar("./sorteReves.csv");
     }
 
     public void embaralharCartas() {
@@ -33,6 +35,12 @@ public class SorteReves extends Lugar{
         indiceCarta++;
         return cartaVez;
     }
+
+    // public void mostrarCarta(){
+    //     for (Carta c: cartas){
+    //         System.out.println(c);
+    //     }
+    // }
 
     @Override
     public void executarAcao(Peao peao) {
