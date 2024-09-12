@@ -1,6 +1,7 @@
 package org.monopoly.lugares;
 
 import org.monopoly.jogo.Jogador;
+import org.monopoly.jogo.Peao;
 
 public abstract class Lugar {
     private String nome;
@@ -30,5 +31,5 @@ public abstract class Lugar {
         this.posicao = posicao;
     }
 
-    public abstract void executarAcao();
+    public abstract void executarAcao(Peao peao);
 }

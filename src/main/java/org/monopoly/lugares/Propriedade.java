@@ -1,6 +1,7 @@
 package org.monopoly.lugares;
 
 import org.monopoly.jogo.Cor;
+import org.monopoly.jogo.Peao;
 
 public class Propriedade extends Lugar{
     private Cor cor;
@@ -15,7 +16,7 @@ public class Propriedade extends Lugar{
     }
 
     @Override
-    public void executarAcao() {
+    public void executarAcao(Peao peao) {
         // executar ação de propriedade
     }
 }

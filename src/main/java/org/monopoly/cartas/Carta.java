@@ -1,5 +1,7 @@
 package org.monopoly.cartas;
 
+import org.monopoly.jogo.Peao;
+
 public abstract class Carta {
     private int numero;
     private String nome;
@@ -35,5 +37,5 @@ public abstract class Carta {
         this.descricao = descricao;
     }
 
-    public abstract void executarAcao();
+    public abstract void executarAcao(Peao peao);
 }

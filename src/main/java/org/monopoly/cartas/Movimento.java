@@ -1,5 +1,8 @@
 package org.monopoly.cartas;
 
+import org.monopoly.jogo.Jogador;
+import org.monopoly.jogo.Peao;
+
 public class Movimento extends Carta{
     private int posicao;
     private RegraMovimentacao regraMovimentacao;
@@ -10,7 +13,7 @@ public class Movimento extends Carta{
     }
 
     @Override
-    public void executarAcao() {
+    public void executarAcao(Peao peao) {
         // executar ação
     }
 }
