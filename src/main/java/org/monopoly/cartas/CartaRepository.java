@@ -34,8 +34,6 @@ public class CartaRepository {
                         RegraPagemento regraPagamento = RegraPagemento.valueOf(colunas[3].trim());
                         int valor = Integer.parseInt(colunas[4].trim());
                         Pagamento pagamento = new Pagamento(numero, nome, descricao, regraPagamento, valor);
-                        System.out.println(colunas[3].trim());
-                        System.out.println(colunas[4].trim());
                         lista.add(pagamento);
                     }  
                 } catch (IllegalArgumentException e) {

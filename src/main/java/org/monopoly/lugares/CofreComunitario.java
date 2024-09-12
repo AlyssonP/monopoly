@@ -54,4 +54,8 @@ public class CofreComunitario extends Lugar {
         Carta carta = pegarCarta();
         carta.executarAcao(peao);
     }
+
+    public int getIndiceCarta(){
+        return this.indiceCarta;
+    }
 }

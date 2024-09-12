@@ -27,7 +27,7 @@ public class Ferrovia extends Lugar{
     @Override
     public void ofertarVendaLugar(Jogador jogador) {
         System.out.printf("A título da ferrovia %s está disponível por %d.\n",getNome(),valor);
-        System.out.printf("%s, você possui $ %d\n",jogador.getNome(), jogador.getSaldo());
+        System.out.printf("%s, você possui $ %.2f\n",jogador.getNome(), jogador.getSaldo());
         System.out.printf("Você deseja comprar %s (s/n)? ",getNome());
         Scanner scanner = new Scanner(System.in);
         String op = scanner.nextLine();
