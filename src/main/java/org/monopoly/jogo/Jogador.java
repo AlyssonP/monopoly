@@ -64,17 +64,14 @@ public class Jogador {
        return false;
 
    }
-   public void comprarTerreno(String resposta, Propriedade lugar){
-        if (resposta.equalsIgnoreCase("s")){
-            lugar.setProprietario(this);
-            descontarSaldo(lugar.getPreco());
-            System.out.println(getNome()+" Comprouu!");
-        }
-
+   public void comprarTerreno(Propriedade lugar){
+        lugar.setProprietario(this);
+        descontarSaldo(lugar.getPreco());
+        System.out.println(getNome()+" Comprouu!");
    }
 
-    public boolean podeComprarImovel(String resposta, Propriedade lugar){
-        if(resposta.equalsIgnoreCase("s") && this.saldo>=lugar.getPrecoCasa() && lugar.getCasas()<5){
+    public boolean podeComprarImovel(Propriedade lugar){
+        if(this.saldo>=lugar.getPrecoCasa() && lugar.getCasas()<5){
             return true;
         }
         return false;

@@ -1,5 +1,7 @@
 package org.monopoly.lugares;
 
+import java.util.Scanner;
+
 import org.monopoly.CorLugar;
 import org.monopoly.jogo.Cor;
 import org.monopoly.jogo.Peao;
@@ -47,6 +49,31 @@ public class Propriedade extends Lugar{
 
     @Override
     public void executarAcao(Peao peao) {
-        // executar ação de propriedade
+        Scanner scanner = new Scanner(System.in);
+    //    SE O TERRENO NÃO TEM DONO E O JOGADOR PODE COMPRAR 
+       if((getProprietario()==null) && peao.getJogador().podeComprarTerreno((Propriedade) this)){
+            System.out.println("Jogador: "+ peao.getJogador().getNome()+" \nSaldo: "+peao.getJogador().getSaldo());
+            System.out.println( getNome()+" \nPosição:"+ getPosicao());
+            System.out.println("Você pode comprar essa propriedade, deseja fazer isso ? (s/n)");
+            String resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("s")){
+                peao.getJogador().comprarTerreno((Propriedade) this);
+            }
+            
+    // SE O TERRENO NA POSIÇÃO ATUAL É DO JOGADOR ATUAL
+       }else if(getProprietario()==peao.getJogador()){
+            System.out.println("Jogador: "+peao.getJogador().getNome()+" \nSaldo: "+peao.getJogador().getSaldo());
+            System.out.println(getNome()+" \nPosição:"+getPosicao());
+
+            System.out.println("Essa propriedade é sua, deseja comprar um imovel ? (s/n)");
+            String resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("s") && peao.getJogador().podeComprarImovel((Propriedade) this)){
+                peao.getJogador().comparImovel((Propriedade) this);
+            }
+       }
+    //    PAGAR ALUGUEL
+       else if((getProprietario()!=null)&&(getProprietario()!=peao.getJogador())){
+            peao.getJogador().pagarAluguel((Propriedade) this);
+        }
     }
 }
