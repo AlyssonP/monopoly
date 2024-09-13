@@ -3,8 +3,8 @@ package org.monopoly.lugares.cantos;
 import org.monopoly.jogo.Peao;
 import org.monopoly.lugares.Canto;
 
-public class PontoPartda extends Canto {
-    public PontoPartda(String nome, int posicao) {
+public class PontoPartida extends Canto {
+    public PontoPartida(String nome, int posicao) {
         super(nome, posicao);
     }
 

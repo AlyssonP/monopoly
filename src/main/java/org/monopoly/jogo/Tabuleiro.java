@@ -3,7 +3,7 @@ package org.monopoly.jogo;
 import org.monopoly.lugares.Lugar;
 import org.monopoly.lugares.Lugar_old;
 import org.monopoly.lugares.Propriedade;
-import org.monopoly.lugares.LugarRepository;
+import org.monopoly.lugares.repository.LugarRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class Tabuleiro {
     public void jogar(Peao peao_da_vez){
         Scanner scanner = new Scanner(System.in);
         int[] numeros = dados.jogarDados();
-        peao_da_vez.setPosicao(peao_da_vez.getPosicao()+1);
+        peao_da_vez.setPosicao(numeros[2]);
         Lugar lugar = buscarLugarPorPosicao(lugares, peao_da_vez.getPosicao());
         lugar.executarAcao(peao_da_vez);
     }

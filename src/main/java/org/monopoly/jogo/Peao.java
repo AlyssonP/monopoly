@@ -6,7 +6,7 @@ public class Peao {
 
     public Peao(Jogador jogador, int posicao) {
         this.jogador = jogador;
-        this.posicao = 5;
+        this.posicao = 39;
     }
 
     public Jogador getJogador() {
@@ -26,7 +26,12 @@ public class Peao {
     }
 
     public void setPosicao(int posicao) {
-        this.posicao = posicao;
+        if((this.posicao+posicao)>40){
+            this.posicao+=posicao;
+            this.posicao-=40;
+        }else{
+            this.posicao+=posicao;
+        }
     }
     @Override
    public String toString() {
