@@ -25,12 +25,15 @@ public class Monopoly {
             System.out.print("Digite um dos comandos: ");
             String comando = scanner.nextLine();
 
+            // Implementar padrão command
             if (comando.equalsIgnoreCase("sair")) {
                 System.out.println("Deseja continuar jogando? (s/n): ");
                 String resposta = scanner.nextLine();
 
-                if (resposta.equalsIgnoreCase("s")) {
+                if (resposta.equalsIgnoreCase("n")) {
                     peaos.remove(jogador_da_vez);
+                }else {
+                    alterar_jogador_da_vez();
                 }
             } else if (comando.equalsIgnoreCase("jogar")) {
                 tabuleiro.jogar(peaos.get(jogador_da_vez));

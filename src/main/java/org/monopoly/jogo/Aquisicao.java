@@ -1,6 +1,8 @@
 package org.monopoly.jogo;
 
-public abstract class Aquisicao {
+import org.monopoly.lugares.Ferrovia;
+
+public abstract class Aquisicao implements AquisicaoInterface{
     private int preco;
     private int hipoteca;
 
@@ -15,5 +17,10 @@ public abstract class Aquisicao {
 
     public void setPreco(int preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public int getValorEspecifico() {
+        return preco;
     }
 }

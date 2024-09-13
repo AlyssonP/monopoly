@@ -3,8 +3,6 @@ package org.monopoly.jogo;
 import org.monopoly.cartas.Carta;
 import org.monopoly.cartas.CartaRepository;
 import org.monopoly.lugares.Lugar;
-import org.monopoly.lugares.Lugar_old;
-import org.monopoly.lugares.Propriedade;
 import org.monopoly.lugares.repository.LugarRepository;
 
 import java.util.ArrayList;
@@ -35,6 +33,7 @@ public class Tabuleiro {
     public void jogar(Peao peao_da_vez){
         Scanner scanner = new Scanner(System.in);
         int[] numeros = dados.jogarDados();
+        System.out.printf("Jogou os dados: %d + %d = %d\n", numeros[0], numeros[1], numeros[2]);
         peao_da_vez.setPosicao(numeros[2]);
         Lugar lugar = buscarLugarPorPosicao(lugares, peao_da_vez.getPosicao());
         lugar.executarAcao(peao_da_vez);

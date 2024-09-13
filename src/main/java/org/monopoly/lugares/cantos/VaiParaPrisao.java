@@ -11,5 +11,6 @@ public class VaiParaPrisao extends Canto {
     @Override
     public void executarAcao(Peao peao) {
         System.out.println("Você vai para prisão");
+        // Adicionar logo de levar para prisão.
     }
 }

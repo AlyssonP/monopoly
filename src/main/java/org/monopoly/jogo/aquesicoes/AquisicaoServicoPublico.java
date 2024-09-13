@@ -1,6 +1,5 @@
 package org.monopoly.jogo.aquesicoes;
 
-import org.monopoly.CorLugar;
 import org.monopoly.jogo.Aquisicao;
 import org.monopoly.lugares.ServicoPublico;
 

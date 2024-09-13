@@ -6,7 +6,7 @@ public class Peao {
 
     public Peao(Jogador jogador, int posicao) {
         this.jogador = jogador;
-        this.posicao = 39;
+        this.posicao = 40;
     }
 
     public Jogador getJogador() {
@@ -40,7 +40,7 @@ public class Peao {
 
     public void getStatus(Tabuleiro tabuleiro) {
         System.out.printf("O status de %s - %s é o seguinte:\n", jogador.getNome(), jogador.getNomeCor());
-        System.out.printf("Sistuado na posição %d - %s\n", posicao, tabuleiro.getLugar(posicao));
+        System.out.printf("Sistuado na posição %d - %s\n", posicao, tabuleiro.getLugar(posicao).getNome());
         System.out.println("Títulos:");
         jogador.imprimirAquisicoes();
     }

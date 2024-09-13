@@ -14,7 +14,7 @@ public class Jogador {
     private String nome;
     private double saldo;
     private Cor cor;
-    private List<Aquisicao> aquisicoes;
+    private List<AquisicaoInterface> aquisicoes;
 
     public Jogador(String nome, Cor cor) {
         this.nome = nome;
@@ -31,9 +31,19 @@ public class Jogador {
         saldo-=valor;
     }
 
-    public List<Aquisicao> getAquisicoes() {
+    public List<AquisicaoInterface> getAquisicoes() {
         return aquisicoes;
     }
+
+//    public List<AquisicaoFerrovia> getAquisicoesFerrovia() {
+//        List<AquisicaoFerrovia> ferrovias = new ArrayList<>();
+//        for(AquisicaoInterface aquisicao: aquisicoes) {
+//            if(aquisicao instanceof AquisicaoFerrovia) {
+//                ferrovias.add(new AquisicaoFerrovia());
+//            }
+//        }
+//        return ferrovias;
+//    }
     public void comprarLugar(Lugar lugar) {
 
     }
@@ -84,7 +94,6 @@ public class Jogador {
     public void pagarAluguelPropriedade(Propriedade lugar){
         descontarSaldo(lugar.getAluguel());
         lugar.getProprietario().acrescentarSaldo(lugar.getAluguel());
-        System.out.println(this.nome+" PAGOU "+lugar.getAluguel()+" PARA " + lugar.getProprietario().getNome());
     }
 
     public void pagarAluguelServicoPublico(ServicoPublico lugar){

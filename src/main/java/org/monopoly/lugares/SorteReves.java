@@ -1,13 +1,11 @@
 package org.monopoly.lugares;
 
 import org.monopoly.cartas.Carta;
-import org.monopoly.cartas.CartaRepository;
 import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Peao;
 import org.monopoly.jogo.Tabuleiro;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class SorteReves extends Lugar{
     private int indiceCarta;

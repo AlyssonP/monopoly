@@ -54,7 +54,6 @@ public class Main {
                 } catch (IllegalArgumentException e) {
                     System.out.println("Esta cor é inválida, escolha o que contém na lista.");
                 }
-
             } while (!deveContinuar);
 
             monopoly.addPeao(new Jogador(nome, corEscolhida));
