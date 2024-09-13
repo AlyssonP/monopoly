@@ -5,6 +5,7 @@ import org.monopoly.jogo.aquesicoes.AquisicaoPropriedade;
 import org.monopoly.lugares.Ferrovia;
 import org.monopoly.lugares.Lugar;
 import org.monopoly.lugares.Propriedade;
+import org.monopoly.lugares.ServicoPublico;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,10 +81,15 @@ public class Jogador {
         this.saldo -= lugar.getPrecoCasa();
     }
 
-    public void pagarAluguel(Propriedade lugar){
+    public void pagarAluguelPropriedade(Propriedade lugar){
         descontarSaldo(lugar.getAluguel());
         lugar.getProprietario().acrescentarSaldo(lugar.getAluguel());
         System.out.println(this.nome+" PAGOU "+lugar.getAluguel()+" PARA " + lugar.getProprietario().getNome());
+    }
+
+    public void pagarAluguelServicoPublico(ServicoPublico lugar){
+        this.descontarSaldo(lugar.getPreco());
+        lugar.getProprietario().acrescentarSaldo(lugar.getPreco());
     }
 
     public void comprarFerrovia(Ferrovia ferrovia) {
@@ -91,4 +97,8 @@ public class Jogador {
         aquisicoes.add(new AquisicaoFerrovia(ferrovia));
     }
 
+    public void comprarServicoPublico(ServicoPublico lugar){
+        descontarSaldo(lugar.getPreco());
+        lugar.setProprietario(this);
+    }
 }

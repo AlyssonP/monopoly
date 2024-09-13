@@ -51,38 +51,51 @@ public class Propriedade extends Lugar{
     public int getHipoteca() {return hipoteca;}
 
     @Override
-    public void venderLugar(Jogador jogadorComprador){}
+    public void venderLugar(Jogador jogadorComprador){
+        jogadorComprador.comprarTerreno((Propriedade) this);
+    }
+
+    public void venderCasa(Jogador jogadorComprador){
+        jogadorComprador.comparImovel(this);
+    }
 
     @Override
-    public void ofertarVendaLugar(Jogador jogador){}
+    public void ofertarVendaLugar(Jogador jogador){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Jogador: "+ jogador.getNome()+" \nSaldo: "+jogador.getSaldo());
+        System.out.println( getNome()+" \nPosição:"+ getPosicao());
+        System.out.println("Você pode comprar essa propriedade, deseja fazer isso ? (s/n)");
+        String resposta = scanner.nextLine();
+        if (resposta.equalsIgnoreCase("s")){
+            venderLugar(jogador);
+        }
+    }
+
+    public void ofertarVenderCasa(Jogador jogador){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Jogador: "+jogador.getNome()+" \nSaldo: "+jogador.getSaldo());
+        System.out.println(getNome()+" \nPosição:"+getPosicao());
+        System.out.println("Essa propriedade é sua, deseja comprar um imovel ? (s/n)");
+        String resposta = scanner.nextLine();
+        if (resposta.equalsIgnoreCase("s") && jogador.podeComprarImovel((Propriedade) this)){
+            jogador.comparImovel((Propriedade) this);
+        }
+    }
 
     @Override
     public void executarAcao(Peao peao) {
-        Scanner scanner = new Scanner(System.in);
+        
     //    SE O TERRENO NÃO TEM DONO E O JOGADOR PODE COMPRAR 
        if((getProprietario()==null) && peao.getJogador().podeComprarTerreno((Propriedade) this)){
-            System.out.println("Jogador: "+ peao.getJogador().getNome()+" \nSaldo: "+peao.getJogador().getSaldo());
-            System.out.println( getNome()+" \nPosição:"+ getPosicao());
-            System.out.println("Você pode comprar essa propriedade, deseja fazer isso ? (s/n)");
-            String resposta = scanner.nextLine();
-            if (resposta.equalsIgnoreCase("s")){
-                peao.getJogador().comprarTerreno((Propriedade) this);
-            }
+            ofertarVendaLugar(peao.getJogador());
             
     // SE O TERRENO NA POSIÇÃO ATUAL É DO JOGADOR ATUAL
        }else if(getProprietario()==peao.getJogador()){
-            System.out.println("Jogador: "+peao.getJogador().getNome()+" \nSaldo: "+peao.getJogador().getSaldo());
-            System.out.println(getNome()+" \nPosição:"+getPosicao());
-
-            System.out.println("Essa propriedade é sua, deseja comprar um imovel ? (s/n)");
-            String resposta = scanner.nextLine();
-            if (resposta.equalsIgnoreCase("s") && peao.getJogador().podeComprarImovel((Propriedade) this)){
-                peao.getJogador().comparImovel((Propriedade) this);
-            }
+            ofertarVenderCasa(peao.getJogador());
        }
     //    PAGAR ALUGUEL
        else if((getProprietario()!=null)&&(getProprietario()!=peao.getJogador())){
-            peao.getJogador().pagarAluguel((Propriedade) this);
+            peao.getJogador().pagarAluguelPropriedade((Propriedade) this);
         }
     }
 }

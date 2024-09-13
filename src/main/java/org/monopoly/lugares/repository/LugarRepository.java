@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.monopoly.jogo.Tabuleiro;
 import org.monopoly.lugares.Canto;
 import org.monopoly.lugares.Lugar;
 
@@ -22,13 +23,13 @@ public class LugarRepository {
         return br;
     }
 
-    public final ArrayList<Lugar> iniciar(){
+    public static final ArrayList<Lugar> iniciar(Tabuleiro tabuleiro){
         ArrayList<Lugar> lugares = new ArrayList<>();
         PropriedadesRepository.iniciarPropriedades("./csv/propriedades_coloridas.csv", lugares);
-        CofreComunitarioRepository.iniciarCofresComunitarios("./csv/cofres_comunitarios.csv", lugares);
+        CofreComunitarioRepository.iniciarCofresComunitarios("./csv/cofres_comunitarios.csv", lugares, tabuleiro);
         FerroviaRepository.iniciarFerrovias("./csv/ferrovias.csv", lugares);
         ServicoPublicoRepository.iniciarServicoPublico("./csv/servico_publico.csv", lugares);
-        SorteRevesRepository.inciarSorteReves("./csv/sorte_reves.csv", lugares);
+        SorteRevesRepository.inciarSorteReves("./csv/sorte_reves.csv", lugares, tabuleiro);
         CantoRepository.iniciarCantos(lugares);
         ImpostoRepository.iniciarImposto(lugares);
         return lugares;

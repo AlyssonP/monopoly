@@ -4,31 +4,22 @@ import org.monopoly.cartas.Carta;
 import org.monopoly.cartas.CartaRepository;
 import org.monopoly.jogo.Jogador;
 import org.monopoly.jogo.Peao;
+import org.monopoly.jogo.Tabuleiro;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class CofreComunitario extends Lugar {
-    private ArrayList<Carta> cartas;
+    private Tabuleiro tabuleiro;
     private int indiceCarta;
 
-    public CofreComunitario(String nome, int posicao) {
+    public CofreComunitario(String nome, int posicao, Tabuleiro tabuleiro) {
         super(nome, posicao);
-        inicializarCartas();
-        embaralharCartas();
         indiceCarta = 0;
+        this.tabuleiro = tabuleiro;
     }
 
-    public void inicializarCartas() {
-        CartaRepository repo = new CartaRepository();
-        this.cartas = repo.iniciar("./csv/cofres_comunitarios_cartas.csv");
-    }
-
-    public void embaralharCartas() {
-        Collections.shuffle(cartas);
-    }
-
-    public Carta pegarCarta() {
+    public Carta pegarCarta(ArrayList<Carta> cartas) {
         if(indiceCarta >= cartas.size()) {
             indiceCarta = 0;
         }
@@ -51,7 +42,7 @@ public class CofreComunitario extends Lugar {
 
     @Override
     public void executarAcao(Peao peao) {
-        Carta carta = pegarCarta();
+        Carta carta = pegarCarta(tabuleiro.getCartasCofreComunitarios());
         carta.executarAcao(peao);
     }
 

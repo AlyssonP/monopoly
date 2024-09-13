@@ -1,5 +1,7 @@
 package org.monopoly.jogo;
 
+import org.monopoly.cartas.Carta;
+import org.monopoly.cartas.CartaRepository;
 import org.monopoly.lugares.Lugar;
 import org.monopoly.lugares.Lugar_old;
 import org.monopoly.lugares.Propriedade;
@@ -11,15 +13,18 @@ import java.util.Scanner;
 
 public class Tabuleiro {
     Dados dados = new Dados();
-    private ArrayList<Lugar> lugares;
+    private ArrayList<Lugar> lugares = new ArrayList<>();
+    private ArrayList<Carta> cartasCofreComunitario = new ArrayList<>();
+    private ArrayList<Carta> cartaSorteReves= new ArrayList<>();
 
     public Tabuleiro(){
         inicializarTabuleiro();
     }
 
     public void inicializarTabuleiro() {
-        LugarRepository repo = new LugarRepository();
-        this.lugares = repo.iniciar();
+        this.lugares = LugarRepository.iniciar(this);
+        this.cartasCofreComunitario = CartaRepository.iniciar("./csv/cofres_comunitarios_cartas.csv", cartasCofreComunitario);
+        this.cartaSorteReves = CartaRepository.iniciar("./csv/sorte_reves_cartas.csv", cartaSorteReves);
         System.out.println("Inicializando tabuleiro");
     }
 
@@ -41,5 +46,13 @@ public class Tabuleiro {
             }
         }
         return null;
+    }
+
+    public ArrayList<Carta> getCartaSorteReves(){
+        return this.cartaSorteReves;
+    }
+
+    public ArrayList<Carta> getCartasCofreComunitarios(){
+        return this.cartasCofreComunitario;
     }
 }

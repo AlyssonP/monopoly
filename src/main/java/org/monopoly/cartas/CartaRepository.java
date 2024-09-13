@@ -6,13 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.monopoly.jogo.Tabuleiro;
+
+import java.util.Collections;
+
 public class CartaRepository {
     
 
-    public ArrayList<Carta> iniciar(String caminho){
+    public static ArrayList<Carta> iniciar(String caminho, ArrayList<Carta> lista){
         String arquivoCSV = caminho;
-
-        ArrayList<Carta> lista = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoCSV))) {
             String linha;
@@ -43,6 +45,12 @@ public class CartaRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        embaralharCartas(lista);
         return lista;
+    }
+
+
+    public static void embaralharCartas(ArrayList<Carta> cartas) {
+        Collections.shuffle(cartas);
     }
 }

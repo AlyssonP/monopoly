@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.monopoly.jogo.Tabuleiro;
 import org.monopoly.lugares.Lugar;
 import org.monopoly.lugares.SorteReves;
 
 public class SorteRevesRepository extends LugarRepository{
 
-    public static ArrayList<Lugar> inciarSorteReves(String caminho, ArrayList<Lugar> lugares){
+    public static ArrayList<Lugar> inciarSorteReves(String caminho, ArrayList<Lugar> lugares, Tabuleiro tabuleiro){
         String linha;
         try (BufferedReader br = lerCsv(caminho)) {
             while ((linha = br.readLine()) != null) {
@@ -18,7 +19,7 @@ public class SorteRevesRepository extends LugarRepository{
                     try {
                         int posicao = Integer.parseInt(valores[0].trim());
                         String nome = valores[1].trim();
-                        SorteReves sorteReves = new SorteReves(nome, posicao);
+                        SorteReves sorteReves = new SorteReves(nome, posicao, tabuleiro);
                         lugares.add(sorteReves);
                     } catch (Exception e) {
                         e.printStackTrace();
