@@ -23,7 +23,9 @@ public class Tabuleiro {
         System.out.println("Inicializando tabuleiro");
     }
 
-
+    public Lugar getLugar(int posicao) {
+        return lugares.get(posicao);
+    }
 
     public void jogar(Peao peao_da_vez){
         Scanner scanner = new Scanner(System.in);

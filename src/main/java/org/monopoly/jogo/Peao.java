@@ -33,6 +33,18 @@ public class Peao {
             this.posicao+=posicao;
         }
     }
+
+    public void getComandos() {
+        System.out.println("[jogar][status][sair]");
+    }
+
+    public void getStatus(Tabuleiro tabuleiro) {
+        System.out.printf("O status de %s - %s é o seguinte:\n", jogador.getNome(), jogador.getNomeCor());
+        System.out.printf("Sistuado na posição %d - %s\n", posicao, tabuleiro.getLugar(posicao));
+        System.out.println("Títulos:");
+        jogador.imprimirAquisicoes();
+    }
+
     @Override
    public String toString() {
        return "Jogador:"+this.jogador.getNome()+"    Posição:"+this.posicao;

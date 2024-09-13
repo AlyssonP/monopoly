@@ -30,10 +30,6 @@ public class Jogador {
         saldo-=valor;
     }
 
-    public void addAquisicao(Aquisicao aquisicao) {
-        aquisicoes.add(aquisicao);
-    }
-
     public List<Aquisicao> getAquisicoes() {
         return aquisicoes;
     }
@@ -45,36 +41,32 @@ public class Jogador {
         return this.nome;
     }
 
+    public String getNomeCor() {
+        return cor.getNome();
+    }
+
     public Double getSaldo(){
         return this.saldo;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Jogador:"+this.nome+"    Posição:"+this.posicao;
-//    }
-//    public void setPosicao(int posicao){
-//        if ((this.posicao+posicao)>40){
-//            this.posicao = (this.posicao+=posicao)-40;
-//        }else{
-//            this.posicao += posicao;
-//        }
-//
-//    }
+    public void imprimirAquisicoes() {
+        System.out.println("Aquisições");
+    }
 
-   public boolean podeComprarTerreno(Propriedade lugar){
+    public boolean podeComprarTerreno(Propriedade lugar){
        if(this.saldo>=lugar.getPreco()){
            aquisicoes.add(new AquisicaoPropriedade(lugar));
            return true;
        }
        return false;
 
-   }
-   public void comprarTerreno(Propriedade lugar){
+    }
+
+    public void comprarTerreno(Propriedade lugar){
         lugar.setProprietario(this);
         descontarSaldo(lugar.getPreco());
         System.out.println(getNome()+" Comprouu!");
-   }
+    }
 
     public boolean podeComprarImovel(Propriedade lugar){
         if(this.saldo>=lugar.getPrecoCasa() && lugar.getCasas()<5){

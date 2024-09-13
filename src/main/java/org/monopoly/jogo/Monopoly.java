@@ -1,6 +1,9 @@
 package org.monopoly.jogo;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import static org.monopoly.GerenciamentoScanner.limparTerminal;
 
 public class Monopoly {
     private ArrayList<Peao> peaos;
@@ -15,8 +18,28 @@ public class Monopoly {
     public void addPeao(Jogador jogador) {peaos.add(new Peao(jogador, 0));}
 
     public void jogar(){
-       this.tabuleiro.jogar(peaos.get(jogador_da_vez));
-       alterar_jogador_da_vez();
+        Scanner scanner = new Scanner(System.in);
+        while (peaos.size() > 1) {
+            peaoVez().getComandos();
+
+            tabuleiro.jogar(peaos.get(jogador_da_vez));
+
+            System.out.println("Deseja continuar jogando? (s/n): ");
+            String resposta = scanner.nextLine();
+
+            if (resposta.equalsIgnoreCase("n")) {
+                peaos.remove(jogador_da_vez);
+            }
+
+            limparTerminal();
+            alterar_jogador_da_vez();
+        }
+        System.out.println("O jogo acabou!");
+        scanner.close();
+    }
+
+    public Peao peaoVez() {
+        return peaos.get(jogador_da_vez);
     }
 
     public void alterar_jogador_da_vez(){

@@ -19,7 +19,7 @@ public class Main {
         int nJogadores = scanner.nextInt();
         scanner.nextLine();
 
-        if(nJogadores < 2 || nJogadores > 8) {
+        if (nJogadores < 2 || nJogadores > 8) {
             System.out.println("A quantidade jogadores é inválido. O jogo é necessita de 2 a 8 jogadores.");
             return;
         }
@@ -27,14 +27,14 @@ public class Main {
         List<Cor> coresDisponiveis = List.of(Cor.PRETO, Cor.BRANCO, Cor.VERMELHO, Cor.VERDE, Cor.AZUL, Cor.AMARELO, Cor.LARANJA, Cor.ROSA);
         List<Cor> coresUtilizadas = new ArrayList<>();
 
-        for(int i = 1; i <= nJogadores; i++) {
-            System.out.printf("Digite o nome do jogador %d : ",i);
+        for (int i = 1; i <= nJogadores; i++) {
+            System.out.printf("Digite o nome do jogador %d : ", i);
             String nome = scanner.nextLine();
 
-            System.out.printf("Jogador %s escolha uma das cores diponíveis abaixo:\n",nome);
-            for(Cor cor:coresDisponiveis) {
-                if(!coresUtilizadas.contains(cor)){
-                    System.out.printf("[%s]",cor);
+            System.out.printf("Jogador %s escolha uma das cores diponíveis abaixo:\n", nome);
+            for (Cor cor : coresDisponiveis) {
+                if (!coresUtilizadas.contains(cor)) {
+                    System.out.printf("[%s]", cor);
                 }
             }
             System.out.println();
@@ -45,7 +45,7 @@ public class Main {
                 String corInput = scanner.nextLine().toUpperCase();
                 try {
                     corEscolhida = Cor.valueOf(corInput);
-                    if(coresUtilizadas.contains(corEscolhida)) {
+                    if (coresUtilizadas.contains(corEscolhida)) {
                         System.out.println("Está cor já está em utilização.");
                     } else {
                         coresUtilizadas.add(corEscolhida);
@@ -55,38 +55,12 @@ public class Main {
                     System.out.println("Esta cor é inválida, escolha o que contém na lista.");
                 }
 
-            } while(!deveContinuar);
+            } while (!deveContinuar);
 
             monopoly.addPeao(new Jogador(nome, corEscolhida));
         }
 
-        boolean continuar = true;
-        limparTerminal();
-        while (continuar) {
-            monopoly.jogar();
-
-            System.out.println("Deseja continuar jogando? (s/n): ");
-            String resposta = scanner.nextLine();
-            
-            if (resposta.equalsIgnoreCase("n")) {
-                continuar = false;
-            }
-            limparTerminal();
-        }
-        System.out.println("O jogo acabou!");
-        scanner.close();
+        GerenciamentoScanner.limparTerminal();
+        monopoly.jogar();
     }
-
-    public static void limparTerminal() {
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                new ProcessBuilder("clear").inheritIO().start().waitFor();
-            }
-        } catch (Exception e) {
-            System.err.println("Erro ao limpar o terminal: " + e.getMessage());
-        }
-    }
-
 }
