@@ -60,7 +60,8 @@ public class Main {
             monopoly.addPeao(new Jogador(nome, corEscolhida));
         }
 
-        GerenciamentoScanner.limparTerminal();
         monopoly.jogar();
+        scanner.close();
+        GerenciamentoScanner.limparTerminal();
     }
 }

@@ -20,21 +20,29 @@ public class Monopoly {
     public void jogar(){
         Scanner scanner = new Scanner(System.in);
         while (peaos.size() > 1) {
+            System.out.printf("A jogada da vez é de %s:\n",peaoVez().getNomeJogador());
             peaoVez().getComandos();
+            System.out.print("Digite um dos comandos: ");
+            String comando = scanner.nextLine();
 
-            tabuleiro.jogar(peaos.get(jogador_da_vez));
+            if (comando.equalsIgnoreCase("sair")) {
+                System.out.println("Deseja continuar jogando? (s/n): ");
+                String resposta = scanner.nextLine();
 
-            System.out.println("Deseja continuar jogando? (s/n): ");
-            String resposta = scanner.nextLine();
-
-            if (resposta.equalsIgnoreCase("n")) {
-                peaos.remove(jogador_da_vez);
+                if (resposta.equalsIgnoreCase("s")) {
+                    peaos.remove(jogador_da_vez);
+                }
+            } else if (comando.equalsIgnoreCase("jogar")) {
+                tabuleiro.jogar(peaos.get(jogador_da_vez));
+                alterar_jogador_da_vez();
+            } else if (comando.equalsIgnoreCase("status")) {
+                Peao peao = peaos.get(jogador_da_vez);
+                peao.getStatus(tabuleiro);
             }
-
-            limparTerminal();
-            alterar_jogador_da_vez();
         }
+        limparTerminal();
         System.out.println("O jogo acabou!");
+        System.out.printf("%s ganhou o jogo!!\n",peaoGanhador().getNomeJogador());
         scanner.close();
     }
 
@@ -48,6 +56,10 @@ public class Monopoly {
         }else{
             this.jogador_da_vez += 1;
         }
+    }
+
+    public Peao peaoGanhador() {
+        return peaos.get(0);
     }
 
 }
